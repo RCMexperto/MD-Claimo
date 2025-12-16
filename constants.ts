@@ -28,7 +28,8 @@ export const NAV_LINKS: NavLink[] = [
       { label: 'Provider contracting and credentialing', href: '#services', id: 'credentialing', type: 'service' },
       { label: 'Medical Billing & Coding', href: '#services', id: 'billing', type: 'service' },
       { label: 'AR follow and Denial management', href: '#services', id: 'ar_denial', type: 'service' },
-      { label: 'Auditing and Reporting', href: '#services', id: 'audit', type: 'service' }
+      { label: 'Auditing and Reporting', href: '#services', id: 'audit', type: 'service' },
+      { label: 'AI Image Studio (Beta)', href: '#ai-studio' }
     ]
   },
   { 

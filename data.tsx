@@ -58,7 +58,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: CalendarClock,
     article: {
       title: 'The True Start of Your Revenue Cycle: Why Patient Scheduling is Not a Clerical Task',
-      image: 'https://images.unsplash.com/photo-1584515933487-98db75f565b1?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
       content: <SchedulingArticle />
     }
   },
@@ -69,7 +69,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: ShieldCheck,
     article: {
       title: 'The First Line of Defense: Mastering Verification of Benefits (VOB)',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200',
       content: <EligibilityArticle />
     }
   },
@@ -80,7 +80,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: FileSignature,
     article: {
       title: 'Breaking Through the Red Tape: Strategic Provider Credentialing',
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=1200',
       content: <CredentialingArticle />
     }
   },
@@ -91,7 +91,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: FileText,
     article: {
       title: 'Precision Meets Profit: The Art of Compliant Medical Coding',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200',
       content: <BillingCodingArticle />
     }
   },
@@ -102,7 +102,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: Undo2,
     article: {
       title: 'Recovering What Is Yours: The Science of Denial Management',
-      image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200',
       content: <ARDenialArticle />
     }
   },
@@ -113,7 +113,7 @@ export const SERVICES: ServiceItem[] = [
     Icon: BarChart3,
     article: {
       title: 'Data-Driven Decisions: Auditing for Growth and Compliance',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
       content: <AuditArticle />
     }
   },
@@ -127,7 +127,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Expertise in Interventional, Electrophysiology, and General Cardiology billing.',
     article: {
       title: 'Cardiology RCM: Precision at the Heart of Revenue',
-      image: 'https://images.unsplash.com/photo-1628348070889-29037999d28f?auto=format&fit=crop&q=80&w=1000',
+      // Real cath lab visualization
+      image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=1200',
       content: <CardiologyArticle />
     }
   },
@@ -138,7 +139,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating time-based coding, telehealth parity, and mental health parity laws.',
     article: {
       title: 'Mental Health RCM: Mastering Complexity',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000',
+      // High end abstract neural network
+      image: 'https://images.unsplash.com/photo-1559757175-7b24e391b154?auto=format&fit=crop&q=80&w=1200',
       content: <PsychiatryArticle />
     }
   },
@@ -149,7 +151,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'High-volume efficiency, VFC vaccine management, and preventive care coding.',
     article: {
       title: 'Pediatrics RCM: Maximizing Thin Margins',
-      image: 'https://images.unsplash.com/photo-1559839734-2b71ea86b48e?auto=format&fit=crop&q=80&w=1000',
+      // Emotional, high quality pediatric shot
+      image: 'https://images.unsplash.com/photo-1612776572097-7698553f94c6?auto=format&fit=crop&q=80&w=1200',
       content: <PediatricsArticle />
     }
   },
@@ -160,7 +163,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Managing global surgical periods, implants, and workers compensation claims.',
     article: {
       title: 'Orthopedics RCM: From Surgery to Rehab',
-      image: 'https://images.unsplash.com/photo-1584516150909-c43483ee7932?auto=format&fit=crop&q=80&w=1000',
+      // High tech skeletal model
+      image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200',
       content: <OrthopedicsArticle />
     }
   },
@@ -171,7 +175,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Optimizing Chronic Care Management (CCM) and Annual Wellness Visits.',
     article: {
       title: 'Internal Medicine: capturing Chronic Care Revenue',
-      image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=1000',
+      // Doctor with stethoscope detail
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200',
       content: <InternalMedicineArticle />
     }
   },
@@ -182,7 +187,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating opioid scrutiny, injection bundling, and urine toxicology audits.',
     article: {
       title: 'Pain Management: Compliance in a High-Audit Field',
-      image: 'https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=1000',
+      // Nerve/Spine visualization
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=1200',
       content: <PainMgmtArticle />
     }
   },
@@ -193,7 +199,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Mastering the global maternity package, ultrasounds, and preventive split-billing.',
     article: {
       title: 'OB/GYN RCM: The Maternity Matrix',
-      image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df4?auto=format&fit=crop&q=80&w=1000',
+      // Fetal ultrasound high res
+      image: 'https://images.unsplash.com/photo-1623151474818-b2a095c73c2a?auto=format&fit=crop&q=80&w=1200',
       content: <ObGynArticle />
     }
   },
@@ -204,7 +211,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Mohs surgery staging, cosmetic vs medical necessity, and lesion destruction rules.',
     article: {
       title: 'Dermatology: Precision in Procedures',
-      image: 'https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&q=80&w=1000',
+      // Skin science / macro shot
+      image: 'https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&q=80&w=1200',
       content: <DermatologyArticle />
     }
   },
@@ -215,7 +223,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Endoscopy coding rules, screening vs diagnostic colonoscopies, and anesthesia.',
     article: {
       title: 'Gastroenterology: The Screening Nuance',
-      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000',
+      // Scientific lab aesthetic
+      image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200',
       content: <GastroArticle />
     }
   },
@@ -226,7 +235,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Dialysis monthly capitation (MCP) tiers, CKD staging, and anemia management.',
     article: {
       title: 'Nephrology: Maximizing MCP Revenue',
-      image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1000',
+      // Dialysis high tech
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
       content: <NephrologyArticle />
     }
   },
@@ -237,7 +247,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Holistic billing for multi-generational care and diverse procedure codes.',
     article: {
       title: 'Family Medicine: Breadth and Depth',
-      image: 'https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&q=80&w=1000',
+      // Family doctor consultation
+      image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=1200',
       content: <FamilyMedicineArticle />
     }
   },
@@ -248,7 +259,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Fast-paced billing for S-codes, occ-med, and immediate care services.',
     article: {
       title: 'Urgent Care: Speed and Accuracy',
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000',
+      // Emergency/Urgent care sign
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
       content: <UrgentCareArticle />
     }
   },
@@ -259,7 +271,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating PDPM, consolidated billing, and Part A vs Part B complexities.',
     article: {
       title: 'SNF Billing: The PDPM Era',
-      image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=1000',
+      // Modern care facility
+      image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200',
       content: <SNFArticle />
     }
   },
@@ -270,7 +283,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Managing rental cycles, certificates of medical necessity, and HCPCS coding.',
     article: {
       title: 'DME RCM: Equipment and Compliance',
-      image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&q=80&w=1000',
+      // Wheelchair/rehab
+      image: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&q=80&w=1200',
       content: <DMEArticle />
     }
   },
@@ -281,7 +295,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'J-code billing, NDC matching, and specialty drug reimbursement.',
     article: {
       title: 'Pharmacy & Infusion RCM',
-      image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=1000',
+      // Pharmacy tech / pills
+      image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=1200',
       content: <PharmacyArticle />
     }
   },
