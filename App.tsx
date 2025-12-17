@@ -11,7 +11,6 @@ import Resources from './components/Resources';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Testimonials from './components/Testimonials';
 import ArticleView from './components/ArticleView';
 import TimelyFiling from './components/TimelyFiling';
 import AiImageEditor from './components/AiImageEditor';
@@ -158,7 +157,6 @@ function App() {
         <Learn onArticleClick={handleArticleClick} />
         <Resources />
         <FAQ />
-        <Testimonials />
         <Contact />
       </main>
       <Footer onNavClick={handleNavbarClick} />
