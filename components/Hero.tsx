@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
           className="mt-16 pt-8 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 text-center w-full max-w-6xl"
         >
           {[
-            { label: 'Clean Claim Rate', value: '99%' },
+            { label: 'Clean Claim Rate', value: '96.8%' },
             { label: 'Avg Revenue Increase', value: '25%' },
             { label: 'Active Providers', value: '500+' },
             { label: 'Denial Reduction', value: '40%' },

@@ -271,7 +271,7 @@ export const BillingCodingArticle: React.FC = () => (
         colorClass="text-green-400"
         bgClass="bg-green-900/10 border-green-500/20"
       >
-        Our clients experience an average <strong>15-20% increase in monthly revenue</strong> within the first 6 months. We maintain a <strong>98% First-Pass Acceptance Rate</strong>, meaning only 2% of claims ever need rework.
+        Our clients experience an average <strong>15-20% increase in monthly revenue</strong> within the first 6 months. We maintain a <strong>96.8% First-Pass Acceptance Rate</strong>, meaning only 3.2% of claims ever need rework.
       </ImpactBox>
     </section>
   </div>

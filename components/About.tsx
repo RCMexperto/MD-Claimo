@@ -170,7 +170,7 @@ const About: React.FC = () => {
                 <div className="bg-dark-950/80 p-6 rounded-xl border border-white/10 flex flex-col items-center text-center hover:border-brand-500/50 transition-colors">
                   <div className="text-gray-400 text-sm uppercase tracking-widest font-bold mb-4">Clean Claim Rate</div>
                   <div className="flex items-end gap-2 mb-2">
-                    <span className="text-5xl font-bold text-brand-400">98%</span>
+                    <span className="text-5xl font-bold text-brand-400">96.8%</span>
                     <span className="text-xl text-white font-medium mb-1">+</span>
                   </div>
                   <div className="w-full h-px bg-white/10 my-4"></div>
@@ -215,7 +215,8 @@ const About: React.FC = () => {
                <span className="text-brand-400 font-semibold tracking-wide uppercase text-sm">Strategic Intelligence</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6 leading-tight">
-              Data That Drives <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-blue-500">Practice Expansion</span>
+              Data That Drives <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-blue-500">
+             Practice Expansion</span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
               RCM is not just about maintenance; it's about growth. We transform your billing data into a strategic asset. By analyzing payment patterns and patient demographics, we uncover hidden revenue streams and arm you with the leverage needed for contract negotiations.

@@ -151,8 +151,8 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'High-volume efficiency, VFC vaccine management, and preventive care coding.',
     article: {
       title: 'Pediatrics RCM: Maximizing Thin Margins',
-      // Emotional, high quality pediatric shot
-      image: 'https://images.unsplash.com/photo-1612776572097-7698553f94c6?auto=format&fit=crop&q=80&w=1200',
+      // Updated to match user request: Doctor with child and parent
+      image: 'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&q=80&w=1200',
       content: <PediatricsArticle />
     }
   },

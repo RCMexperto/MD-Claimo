@@ -37,7 +37,7 @@ const PILLARS = [
     title: "Front-End Revenue Cycle",
     icon: Target,
     problem: "Losing revenue before the patient arrives?",
-    solution: "Mastering eligibility verification, prior authorizations, and patient demographic entry is the only way to secure a 98% Clean Claim Rate.",
+    solution: "Mastering eligibility verification, prior authorizations, and patient demographic entry is the only way to secure a 96.8% Clean Claim Rate.",
     metric: "Reduce Rejections by 40%",
     color: "brand"
   },
