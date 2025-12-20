@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
           {[
             { label: 'Clean Claim Rate', value: '96.8%' },
             { label: 'Avg Revenue Increase', value: '25%' },
-            { label: 'Active Providers', value: '500+' },
+            { label: 'Active Providers', value: '50+' },
             { label: 'Denial Reduction', value: '40%' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center p-4 rounded-xl hover:bg-white/5 transition-colors">
