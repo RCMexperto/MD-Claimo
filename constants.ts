@@ -8,7 +8,7 @@ import {
   Stethoscope, 
   Activity
 } from 'lucide-react';
-import { SpecialtyItem, LearnItem, NavLink, TestimonialItem } from './types';
+import { SpecialtyItem, LearnItem, NavLink } from './types';
 import { 
   ICD10UpdateArticle, 
   Modifier25Article, 
@@ -29,7 +29,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: 'Medical Billing & Coding', href: '#services', id: 'billing', type: 'service' },
       { label: 'AR follow and Denial management', href: '#services', id: 'ar_denial', type: 'service' },
       { label: 'Auditing and Reporting', href: '#services', id: 'audit', type: 'service' },
-      { label: 'AI Image Studio (Beta)', href: '#ai-studio' }
+      { label: 'Medical Transcription', href: '#services', id: 'medical_transcription', type: 'service' },
     ]
   },
   { 
@@ -161,80 +161,37 @@ export const LEARN_ARTICLES: LearnItem[] = [
   }
 ];
 
-export const TESTIMONIALS: TestimonialItem[] = [
+export const TESTIMONIALS = [
   {
     id: '1',
-    name: 'Dr. Sarah Mitchell',
-    role: 'Medical Director',
-    practice: 'Metro Heart Institute', // Generic Name
-    quote: 'MD Claimo has completely transformed our revenue cycle. Our denials dropped by 40% in the first three months, and cash flow has never been better.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea86b48e?auto=format&fit=crop&q=80&w=200&h=200'
+    quote: "MD Claimo transformed our billing. Denials are down, collections are up, and our staff is finally free to focus on patient care. Their expertise is unmatched!",
+    image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    name: 'Dr. Emily Chen',
+    role: 'Practice Owner',
+    practice: 'ClearPath Cardiology'
   },
   {
     id: '2',
-    name: 'James Wilson',
-    role: 'Practice Administrator',
-    practice: 'Oak Healthcare Partners', // Generic Name
-    quote: 'The transparency and reporting tools are a game changer. I finally know exactly where every dollar is. Highly recommended for any growing practice.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200'
+    quote: "We struggled with complex psychiatric billing for years. MD Claimo came in, streamlined everything, and increased our revenue by 20% in just six months. Highly recommend!",
+    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    name: 'Sarah Miller, LCSW',
+    role: 'Clinic Manager',
+    practice: 'MindWell Behavioral Health'
   },
   {
     id: '3',
-    name: 'Dr. Emily Chen',
-    role: 'Pediatrician',
-    practice: 'Bright Future Pediatrics', // Generic Name
-    quote: 'We were drowning in paperwork before MD Claimo. Now, my staff can focus on patients instead of fighting with insurance companies.',
-    image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=200&h=200'
+    quote: "Their team's attention to detail on credentialing saved us months of headaches and ensured we started billing new providers almost immediately. A true partner.",
+    image: 'https://randomuser.me/api/portraits/men/19.jpg',
+    name: 'Michael Davis',
+    role: 'Administrator',
+    practice: 'OrthoSpine Solutions'
   },
   {
     id: '4',
-    name: 'Dr. Marcus Reynolds',
-    role: 'Chief Surgeon',
-    practice: 'Apex Ortho & Sports Med', // Generic Name
-    quote: 'Orthopedic billing is notoriously complex with global periods and implants. MD Claimo cleaned up our backlog and increased our surgical reimbursements by 18% in year one.',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200&h=200'
+    quote: "The auditing and reporting capabilities MD Claimo provides are phenomenal. We now have a clear view of our financial health and actionable insights for growth.",
+    image: 'https://randomuser.me/api/portraits/women/68.jpg',
+    name: 'Jessica Lee, RN',
+    role: 'Clinical Director',
+    practice: 'Summit Internal Medicine'
   },
-  {
-    id: '5',
-    name: 'Jennifer Lewis',
-    role: 'Practice Manager',
-    practice: 'Downtown Derm Associates', // Generic Name
-    quote: 'Balancing cosmetic and medical billing was a nightmare for us. MD Claimo’s team understood the nuance immediately. Their reporting helps me run this practice like a true business.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200'
-  },
-  {
-    id: '6',
-    name: 'Dr. Anika Patel',
-    role: 'Owner',
-    practice: 'Westside Pediatric Group', // Generic Name - Replaced "Prime"
-    quote: 'As a solo practitioner, I cannot afford denials. Their team handles my vaccine inventory billing perfectly. I have peace of mind knowing my revenue is safe.',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200'
-  },
-  // NEW TESTIMONIAL 1
-  {
-    id: '7',
-    name: 'Thomas Clarke, MBA',
-    role: 'CFO',
-    practice: 'Unified Surgical Associates', // Generic Name
-    quote: 'We audited three different billing companies before choosing MD Claimo. Their ability to integrate with our existing EHR and provide real-time KPI dashboards made them the clear choice.',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200'
-  },
-  // NEW TESTIMONIAL 2
-  {
-    id: '8',
-    name: 'Dr. Robert Vance',
-    role: 'Neurologist',
-    practice: 'Center for Advanced Neurology', // Generic Name
-    quote: 'Pre-authorizations for MRI and infusion therapies were killing our admin time. MD Claimo took over the entire auth process, and our approval turnaround time dropped from 7 days to 24 hours.',
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=200&h=200'
-  },
-  // NEW TESTIMONIAL 3
-  {
-    id: '9',
-    name: 'Amanda Richardson',
-    role: 'Operations Director',
-    practice: 'Valley Gastro Specialists', // Generic Name
-    quote: 'Transitioning to MD Claimo was seamless. They identified $40k in unbilled pathology charges from the previous year during their initial audit. They pay for themselves.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200&h=200'
-  }
 ];

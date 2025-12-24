@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               </li>
               <li className="flex items-center gap-3 text-sm group">
                 <Phone className="w-5 h-5 text-brand-500 shrink-0 group-hover:text-brand-400" />
-                <a href="tel:+15551234567" className="hover:text-white transition-colors">+1 (555) 123-4567</a>
+                <a href="tel:+13466784300" className="hover:text-white transition-colors">(346) 678-4300</a>
               </li>
               <li className="flex items-center gap-3 text-sm group">
                 <Mail className="w-5 h-5 text-brand-500 shrink-0 group-hover:text-brand-400" />

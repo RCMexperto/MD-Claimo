@@ -43,12 +43,3 @@ export interface NavLink {
   type?: 'service' | 'specialty';
   children?: NavLink[];
 }
-
-export interface TestimonialItem {
-  id: string;
-  name: string;
-  role: string;
-  practice: string;
-  quote: string;
-  image: string;
-}

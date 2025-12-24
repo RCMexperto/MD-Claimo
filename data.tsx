@@ -21,7 +21,8 @@ import {
   Droplets,
   Microscope,
   Sun,
-  Syringe
+  Syringe,
+  Mic // New import for Medical Transcription icon
 } from 'lucide-react';
 import { ServiceItem, SpecialtyItem } from './types';
 import SchedulingArticle from './components/SchedulingArticle';
@@ -49,6 +50,7 @@ import {
   GastroArticle,
   NephrologyArticle
 } from './components/SpecialtyArticles';
+import { MedicalTranscriptionArticle } from './components/MedicalTranscriptionArticle'; // New import for the article content
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -115,6 +117,17 @@ export const SERVICES: ServiceItem[] = [
       title: 'Data-Driven Decisions: Auditing for Growth and Compliance',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
       content: <AuditArticle />
+    }
+  },
+  {
+    id: 'medical_transcription',
+    title: 'Medical Transcription Service',
+    description: 'Ensure accurate and timely patient records with our AI-powered and human-verified transcription. Free up physician time and improve billing accuracy.',
+    Icon: Mic,
+    article: {
+      title: 'Medical Transcription: Unlocking Efficiency & Accuracy in Your Practice',
+      image: 'https://images.unsplash.com/photo-1588720138241-15cf485055b3?auto=format&fit=crop&q=80&w=1200',
+      content: <MedicalTranscriptionArticle />
     }
   },
 ];

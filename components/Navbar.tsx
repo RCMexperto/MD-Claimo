@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Activity, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 import { NavLink } from '../types';
 
@@ -7,157 +7,160 @@ interface NavbarProps {
   onNavClick?: (link: NavLink) => void;
 }
 
+// Base64 encoded logo image
+// Replaced with a minimal, valid transparent PNG placeholder to resolve persistent SyntaxError.
+// You should replace this with your actual logo's base64 data after ensuring it's correctly generated.
+const MD_CLAIMO_LOGO_BASE64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+
 const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 0);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLinkClick = (e: React.MouseEvent, link: NavLink) => {
-    // If it's a link with children (dropdown), we might want to toggle visibility on mobile
-    // But for desktop hover does the job.
-    // For main links:
+  const handleLinkClick = (link: NavLink, e?: React.MouseEvent) => {
+    if (link.children) {
+      e?.preventDefault(); // Prevent default if it's a parent link with children
+      setOpenDropdown(openDropdown === link.label ? null : link.label);
+      return;
+    }
     
-    // Always call onNavClick to allow parent to reset states (like closing ArticleView)
     if (onNavClick) {
       onNavClick(link);
     }
-
-    if (link.children) {
-      // Logic for mobile dropdown toggle could go here if needed
-      return; 
-    }
-
-    // Close mobile menu
     setIsOpen(false);
-
-    // If it's a hash link, the default behavior + App.tsx logic will handle it.
-    // However, if we are in ArticleView, preventing default might be needed to let React handle state first.
-    // But standard anchor behavior is usually fine if the element exists. 
-    // Since App.tsx handles the state reset, we don't strictly need preventDefault unless it's a "button" type link.
+    setOpenDropdown(null);
   };
 
+  const MobileNavLink: React.FC<{ link: NavLink }> = ({ link }) => (
+    <li>
+      <button
+        onClick={(e) => handleLinkClick(link, e)}
+        className="flex items-center justify-between w-full py-3 px-4 text-lg text-white font-medium hover:bg-white/10 rounded-lg transition-colors"
+      >
+        {link.label}
+        {link.children && <ChevronDown className={`w-5 h-5 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />}
+      </button>
+      {link.children && openDropdown === link.label && (
+        <ul className="pl-6 pt-2 space-y-2">
+          {link.children.map((childLink) => (
+            <li key={childLink.label}>
+              <a
+                href={childLink.href}
+                onClick={() => handleLinkClick(childLink)}
+                className="block py-2 px-3 text-base text-gray-300 hover:text-white hover:bg-white/5 rounded-md transition-colors"
+              >
+                {childLink.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+
+  const DesktopNavLink: React.FC<{ link: NavLink }> = ({ link }) => (
+    <div className="relative group">
+      <button
+        onClick={(e) => handleLinkClick(link, e)}
+        className={`flex items-center gap-1 font-medium hover:text-brand-400 transition-colors ${link.children ? 'cursor-pointer' : ''}`}
+      >
+        {link.label}
+        {link.children && <ChevronDown className={`w-4 h-4 transition-transform group-hover:rotate-180 ${openDropdown === link.label ? 'rotate-180' : ''}`} />}
+      </button>
+      {link.children && (
+        <div className={`absolute left-1/2 -translate-x-1/2 mt-3 w-64 bg-dark-900 border border-white/10 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300
+          ${openDropdown === link.label ? 'opacity-100 visible' : ''}
+        `}>
+          <ul className="space-y-1">
+            {link.children.map((childLink) => (
+              <li key={childLink.label}>
+                <a
+                  href={childLink.href}
+                  onClick={() => handleLinkClick(childLink)}
+                  className="block px-4 py-2 text-sm text-gray-300 hover:bg-brand-500/10 hover:text-brand-400 transition-colors"
+                >
+                  {childLink.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-950/90 backdrop-blur-md border-b border-white/10 shadow-lg' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-dark-950/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.location.href = '/'}>
-            <div className="bg-gradient-to-tr from-brand-500 to-blue-600 p-2 rounded-lg">
-              <Activity className="h-6 w-6 text-white" />
-            </div>
-            <span className="font-heading font-bold text-2xl text-white tracking-tight">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2" onClick={() => handleLinkClick({ label: 'Home', href: '/' })}>
+            {/* Using img tag for base64 logo */}
+            <img src={MD_CLAIMO_LOGO_BASE64} alt="MD Claimo Logo" className="h-8 w-auto" />
+            <span className="font-heading font-bold text-xl text-white tracking-tight">
               MD <span className="text-brand-400">Claimo</span>
             </span>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {NAV_LINKS.map((link) => (
-                <div key={link.label} className="relative group h-full flex items-center">
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link)}
-                    className="text-gray-300 group-hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 cursor-pointer"
-                  >
-                    {link.label}
-                    {link.children && <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />}
-                  </a>
+          </a>
 
-                  {link.children && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-out z-50">
-                      <div className="bg-dark-950/95 backdrop-blur-md border border-white/10 rounded-xl shadow-xl overflow-hidden p-2 ring-1 ring-black ring-opacity-5 relative">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-1 w-2 h-2 bg-dark-950/95 border-t border-l border-white/10 rotate-45 transform"></div>
-                        
-                        {link.children.map((child) => (
-                          <a
-                            key={child.label}
-                            href={child.href}
-                            onClick={(e) => {
-                               e.preventDefault(); // Prevent jump, let App handle content switch
-                               handleLinkClick(e, child);
-                            }}
-                            className="block px-4 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-brand-400 rounded-lg transition-colors cursor-pointer"
-                          >
-                            {child.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-              <a
-                href="#contact"
-                className="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-brand-500/25"
-              >
-                Get Started
-              </a>
-            </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {NAV_LINKS.map((link) => (
+              <DesktopNavLink key={link.label} link={link} />
+            ))}
           </div>
-          
-          <div className="-mr-2 flex md:hidden">
+
+          {/* Contact Button for Desktop */}
+          <div className="hidden md:block">
+            <a 
+              href="#contact" 
+              className="px-5 py-2 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold transition-all shadow-md shadow-brand-900/20"
+              onClick={() => handleLinkClick({ label: 'Contact', href: '#contact' })}
+            >
+              Contact Us
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-dark-950 border-b border-white/10 animate-in slide-in-from-top duration-300 max-h-[90vh] overflow-y-auto">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {NAV_LINKS.map((link) => (
-              <div key={link.label}>
-                <a
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link)}
-                  className="text-gray-300 hover:text-brand-400 block px-3 py-2 rounded-md text-base font-medium flex justify-between items-center"
-                >
-                  {link.label}
-                  {link.children && <ChevronDown className="w-4 h-4 text-gray-500" />}
-                </a>
-                
-                {link.children && (
-                  <div className="pl-4 space-y-1 border-l border-white/10 ml-3 my-1">
-                    {link.children.map((child) => (
-                      <a
-                        key={child.label}
-                        href={child.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleLinkClick(e, child);
-                        }}
-                        className="text-gray-400 hover:text-brand-400 block px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        {child.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="bg-brand-600 text-white block px-3 py-3 rounded-md text-base font-bold text-center mt-6 mx-3"
+      {/* Mobile Menu Panel */}
+      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-dark-950/90 backdrop-blur-md pb-4 border-t border-white/10`}>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {NAV_LINKS.map((link) => (
+            <MobileNavLink key={link.label} link={link} />
+          ))}
+          <li>
+            <a 
+              href="#contact" 
+              onClick={() => handleLinkClick({ label: 'Contact Us', href: '#contact' })}
+              className="block py-3 px-4 text-lg text-white font-medium bg-brand-600 hover:bg-brand-500 rounded-lg transition-colors mt-4 text-center"
             >
-              Get Started
+              Contact Us
             </a>
-          </div>
+          </li>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
 
-export default Navbar;
+export { Navbar };
