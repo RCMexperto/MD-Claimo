@@ -4,17 +4,14 @@ import { LEARN_ARTICLES } from '../constants';
 import { 
   ArrowRight, 
   ShieldAlert, 
-  FileCheck, 
-  Scale, 
-  Wallet, 
+  Target, 
+  Landmark, 
+  Users, 
   TrendingUp, 
   Sparkles, 
   Calendar, 
   Tag,
-  Target,
-  RefreshCcw,
-  Landmark,
-  Users
+  Clock
 } from 'lucide-react';
 import { LearnItem } from '../types';
 
@@ -172,59 +169,70 @@ const Learn: React.FC<LearnProps> = ({ onArticleClick }) => {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {LEARN_ARTICLES.map((article) => (
-            <div 
-              key={article.id}
-              onClick={() => {
-                if (article.link) {
-                  window.open(article.link, '_blank', 'noopener,noreferrer');
-                } else {
-                  onArticleClick(article);
-                }
-              }}
-              className="flex flex-col bg-dark-900 rounded-2xl overflow-hidden hover:bg-white/5 transition-colors group cursor-pointer h-full border border-white/10 hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-900/10"
-            >
-              <div className="h-56 overflow-hidden bg-gray-800 relative">
-                 <img 
-                  src={article.image || `https://picsum.photos/400/250?random=${article.id}`} 
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100"
-                 />
-                 
-                 {/* Visual Date Badge - Requested Feature */}
-                 <div className="absolute top-4 left-4 flex gap-2">
-                    <div className="bg-dark-950/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs text-white font-bold border border-white/20 shadow-lg flex items-center gap-2">
-                      <Calendar className="w-3 h-3 text-brand-400" />
-                      {article.date}
-                    </div>
-                 </div>
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow relative">
-                {/* Category Tag */}
-                <div className="mb-4">
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-brand-400 uppercase tracking-wider bg-brand-500/10 px-2 py-1 rounded border border-brand-500/20">
-                    <Tag className="w-3 h-3" />
-                    {article.category}
-                  </span>
+        {LEARN_ARTICLES.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {LEARN_ARTICLES.map((article) => (
+              <div 
+                key={article.id}
+                onClick={() => {
+                  if (article.link) {
+                    window.open(article.link, '_blank', 'noopener,noreferrer');
+                  } else {
+                    onArticleClick(article);
+                  }
+                }}
+                className="flex flex-col bg-dark-900 rounded-2xl overflow-hidden hover:bg-white/5 transition-colors group cursor-pointer h-full border border-white/10 hover:border-brand-500/30 hover:shadow-2xl hover:shadow-brand-900/10"
+              >
+                <div className="h-56 overflow-hidden bg-gray-800 relative">
+                   <img 
+                    src={article.image || `https://picsum.photos/400/250?random=${article.id}`} 
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 filter brightness-75 group-hover:brightness-100"
+                   />
+                   
+                   {/* Visual Date Badge - Requested Feature */}
+                   <div className="absolute top-4 left-4 flex gap-2">
+                      <div className="bg-dark-950/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs text-white font-bold border border-white/20 shadow-lg flex items-center gap-2">
+                        <Calendar className="w-3 h-3 text-brand-400" />
+                        {article.date}
+                      </div>
+                   </div>
                 </div>
 
-                <h4 className="text-lg font-bold text-white mb-3 group-hover:text-brand-300 transition-colors leading-snug">
-                  {article.title}
-                </h4>
-                
-                <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
-                  {article.excerpt}
-                </p>
-                
-                <div className="mt-auto pt-4 border-t border-white/5 flex items-center text-sm font-bold text-white group-hover:text-brand-400 transition-colors gap-2">
-                  Read Analysis <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <div className="p-6 flex flex-col flex-grow relative">
+                  {/* Category Tag */}
+                  <div className="mb-4">
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-brand-400 uppercase tracking-wider bg-brand-500/10 px-2 py-1 rounded border border-brand-500/20">
+                      <Tag className="w-3 h-3" />
+                      {article.category}
+                    </span>
+                  </div>
+
+                  <h4 className="text-lg font-bold text-white mb-3 group-hover:text-brand-300 transition-colors leading-snug">
+                    {article.title}
+                  </h4>
+                  
+                  <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+                  
+                  <div className="mt-auto pt-4 border-t border-white/5 flex items-center text-sm font-bold text-white group-hover:text-brand-400 transition-colors gap-2">
+                    Read Analysis <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20 bg-white/5 border border-white/5 border-dashed rounded-3xl">
+            <Clock className="w-12 h-12 text-brand-400 mb-4" />
+            <h3 className="text-xl font-bold text-white">Updates In Progress</h3>
+            <p className="text-gray-400 mt-2 text-center max-w-lg">
+              Our team is currently verifying the latest 2025 coding standards and payer guidelines. 
+              New articles and resources will be available shortly.
+            </p>
+          </div>
+        )}
       </div>
     </Section>
   );

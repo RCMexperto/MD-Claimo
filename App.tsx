@@ -1,28 +1,33 @@
 import React, { useState } from 'react';
-import { Navbar } from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import RcmCycle from './components/RcmCycle';
-import Process from './components/Process';
-import Services from './components/Services';
-import Specialties from './components/Specialties';
-import Learn from './components/Learn';
-import Resources from './components/Resources';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import ArticleView from './components/ArticleView';
-import TimelyFiling from './components/TimelyFiling';
-import { LearnItem, ServiceItem, SpecialtyItem, NavLink } from './types';
-import { SERVICES, SPECIALTIES } from './data';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import RcmCycle from './components/RcmCycle.tsx';
+import Process from './components/Process.tsx';
+import Services from './components/Services.tsx';
+import Specialties from './components/Specialties.tsx';
+import Learn from './components/Learn.tsx';
+import Resources from './components/Resources.tsx';
+import FAQ from './components/FAQ.tsx';
+import Contact from './components/Contact.tsx';
+import Footer from './components/Footer.tsx';
+import Testimonials from './components/Testimonials.tsx';
+import ArticleView from './components/ArticleView.tsx';
+import TimelyFiling from './components/TimelyFiling.tsx';
+import KnowledgeCenter from './components/KnowledgeCenter.tsx';
+import { LearnItem, ServiceItem, SpecialtyItem, NavLink } from './types.ts';
+import { SERVICES, SPECIALTIES } from './data.tsx';
 
 function App() {
   const [currentArticle, setCurrentArticle] = useState<LearnItem | null>(null);
   const [showTimelyFiling, setShowTimelyFiling] = useState(false);
+  const [showKnowledgeCenter, setShowKnowledgeCenter] = useState(false);
 
   const handleArticleClick = (article: LearnItem) => {
     setCurrentArticle(article);
     setShowTimelyFiling(false);
+    setShowKnowledgeCenter(false);
+    window.scrollTo(0, 0);
   };
 
   const handleServiceArticleClick = (service: ServiceItem) => {
@@ -37,6 +42,8 @@ function App() {
         content: service.article.content
       });
       setShowTimelyFiling(false);
+      setShowKnowledgeCenter(false);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -52,30 +59,42 @@ function App() {
         content: specialty.article.content
       });
       setShowTimelyFiling(false);
+      setShowKnowledgeCenter(false);
+      window.scrollTo(0, 0);
     }
   };
 
   const handleNavbarClick = (link: NavLink) => {
-    // Timely Filing Navigation
-    if (link.href === '#timely-filing') {
-      setShowTimelyFiling(true);
+    if (link.href === '/knowledge-center') {
+      setShowKnowledgeCenter(true);
+      setShowTimelyFiling(false);
       setCurrentArticle(null);
       window.scrollTo(0, 0);
       return;
     }
 
-    // Normal Navigation
-    if (showTimelyFiling) setShowTimelyFiling(false);
+    if (link.href === '#timely-filing') {
+      setShowTimelyFiling(true);
+      setShowKnowledgeCenter(false);
+      setCurrentArticle(null);
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    // Default: Reset pages and handle anchors
+    setShowKnowledgeCenter(false);
+    setShowTimelyFiling(false);
+    
     if (currentArticle) {
       setCurrentArticle(null);
-      // Allow slight delay for re-render before scrolling if we were deep in a view
-      if (link.href.startsWith('#')) {
-        setTimeout(() => {
-          const id = link.href.substring(1);
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
+    }
+
+    if (link.href.startsWith('#')) {
+      setTimeout(() => {
+        const id = link.href.substring(1);
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
 
     if (link.type === 'service' && link.id) {
@@ -90,10 +109,20 @@ function App() {
   const handleBackToHome = () => {
     setCurrentArticle(null);
     setShowTimelyFiling(false);
+    setShowKnowledgeCenter(false);
     window.scrollTo(0, 0);
   };
 
-  // View: Timely Filing
+  if (showKnowledgeCenter) {
+    return (
+      <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white">
+        <Navbar onNavClick={handleNavbarClick} />
+        <KnowledgeCenter onBack={handleBackToHome} onArticleClick={handleArticleClick} />
+        <Footer onNavClick={handleNavbarClick} />
+      </div>
+    );
+  }
+
   if (showTimelyFiling) {
     return (
       <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white">
@@ -104,7 +133,6 @@ function App() {
     );
   }
 
-  // View: Article
   if (currentArticle) {
     return (
       <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white">
@@ -115,7 +143,6 @@ function App() {
     );
   }
 
-  // View: Main Landing Page
   return (
     <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-brand-500 selection:text-white">
       <Navbar onNavClick={handleNavbarClick} />
@@ -126,6 +153,7 @@ function App() {
         <Process />
         <Services onServiceArticleClick={handleServiceArticleClick} />
         <Specialties onSpecialtyClick={handleSpecialtyClick} />
+        <Testimonials />
         <Learn onArticleClick={handleArticleClick} />
         <Resources />
         <FAQ />

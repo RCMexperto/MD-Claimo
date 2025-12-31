@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   FileText, 
-  DollarSign, 
   ShieldCheck, 
   BarChart3, 
   CalendarClock, 
@@ -21,18 +20,17 @@ import {
   Droplets,
   Microscope,
   Sun,
-  Syringe,
-  Mic // New import for Medical Transcription icon
+  Mic
 } from 'lucide-react';
-import { ServiceItem, SpecialtyItem } from './types';
-import SchedulingArticle from './components/SchedulingArticle';
+import { ServiceItem, SpecialtyItem } from './types.ts';
+import SchedulingArticle from './components/SchedulingArticle.tsx';
 import { 
   EligibilityArticle, 
   CredentialingArticle, 
   BillingCodingArticle, 
   ARDenialArticle, 
   AuditArticle 
-} from './components/ServiceArticles';
+} from './components/ServiceArticles.tsx';
 import { 
   CardiologyArticle, 
   PsychiatryArticle, 
@@ -49,8 +47,8 @@ import {
   DermatologyArticle,
   GastroArticle,
   NephrologyArticle
-} from './components/SpecialtyArticles';
-import { MedicalTranscriptionArticle } from './components/MedicalTranscriptionArticle'; // New import for the article content
+} from './components/SpecialtyArticles.tsx';
+import { MedicalTranscriptionArticle } from './components/MedicalTranscriptionArticle.tsx';
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -122,7 +120,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'medical_transcription',
     title: 'Medical Transcription Service',
-    description: 'Ensure accurate and timely patient records with our AI-powered and human-verified transcription. Free up physician time and improve billing accuracy.',
+    description: 'Ensure accurate and timely patient records with our verified transcription. Improve billing accuracy and physician time.',
     Icon: Mic,
     article: {
       title: 'Medical Transcription: Unlocking Efficiency & Accuracy in Your Practice',
@@ -140,7 +138,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Expertise in Interventional, Electrophysiology, and General Cardiology billing.',
     article: {
       title: 'Cardiology RCM: Precision at the Heart of Revenue',
-      // Real cath lab visualization
       image: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=1200',
       content: <CardiologyArticle />
     }
@@ -152,7 +149,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating time-based coding, telehealth parity, and mental health parity laws.',
     article: {
       title: 'Mental Health RCM: Mastering Complexity',
-      // High end abstract neural network
       image: 'https://images.unsplash.com/photo-1559757175-7b24e391b154?auto=format&fit=crop&q=80&w=1200',
       content: <PsychiatryArticle />
     }
@@ -164,7 +160,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'High-volume efficiency, VFC vaccine management, and preventive care coding.',
     article: {
       title: 'Pediatrics RCM: Maximizing Thin Margins',
-      // Updated to match user request: Doctor with child and parent
       image: 'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&q=80&w=1200',
       content: <PediatricsArticle />
     }
@@ -176,7 +171,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Managing global surgical periods, implants, and workers compensation claims.',
     article: {
       title: 'Orthopedics RCM: From Surgery to Rehab',
-      // High tech skeletal model
       image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200',
       content: <OrthopedicsArticle />
     }
@@ -188,7 +182,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Optimizing Chronic Care Management (CCM) and Annual Wellness Visits.',
     article: {
       title: 'Internal Medicine: capturing Chronic Care Revenue',
-      // Doctor with stethoscope detail
       image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200',
       content: <InternalMedicineArticle />
     }
@@ -200,7 +193,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating opioid scrutiny, injection bundling, and urine toxicology audits.',
     article: {
       title: 'Pain Management: Compliance in a High-Audit Field',
-      // Nerve/Spine visualization
       image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=1200',
       content: <PainMgmtArticle />
     }
@@ -212,7 +204,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Mastering the global maternity package, ultrasounds, and preventive split-billing.',
     article: {
       title: 'OB/GYN RCM: The Maternity Matrix',
-      // Fetal ultrasound high res
       image: 'https://images.unsplash.com/photo-1623151474818-b2a095c73c2a?auto=format&fit=crop&q=80&w=1200',
       content: <ObGynArticle />
     }
@@ -224,7 +215,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Mohs surgery staging, cosmetic vs medical necessity, and lesion destruction rules.',
     article: {
       title: 'Dermatology: Precision in Procedures',
-      // Skin science / macro shot
       image: 'https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&q=80&w=1200',
       content: <DermatologyArticle />
     }
@@ -236,7 +226,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Endoscopy coding rules, screening vs diagnostic colonoscopies, and anesthesia.',
     article: {
       title: 'Gastroenterology: The Screening Nuance',
-      // Scientific lab aesthetic
       image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=1200',
       content: <GastroArticle />
     }
@@ -248,7 +237,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Dialysis monthly capitation (MCP) tiers, CKD staging, and anemia management.',
     article: {
       title: 'Nephrology: Maximizing MCP Revenue',
-      // Dialysis high tech
       image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
       content: <NephrologyArticle />
     }
@@ -260,7 +248,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Holistic billing for multi-generational care and diverse procedure codes.',
     article: {
       title: 'Family Medicine: Breadth and Depth',
-      // Family doctor consultation
       image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=1200',
       content: <FamilyMedicineArticle />
     }
@@ -272,7 +259,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Fast-paced billing for S-codes, occ-med, and immediate care services.',
     article: {
       title: 'Urgent Care: Speed and Accuracy',
-      // Emergency/Urgent care sign
       image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
       content: <UrgentCareArticle />
     }
@@ -284,7 +270,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Navigating PDPM, consolidated billing, and Part A vs Part B complexities.',
     article: {
       title: 'SNF Billing: The PDPM Era',
-      // Modern care facility
       image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200',
       content: <SNFArticle />
     }
@@ -296,7 +281,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'Managing rental cycles, certificates of medical necessity, and HCPCS coding.',
     article: {
       title: 'DME RCM: Equipment and Compliance',
-      // Wheelchair/rehab
       image: 'https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?auto=format&fit=crop&q=80&w=1200',
       content: <DMEArticle />
     }
@@ -308,7 +292,6 @@ export const SPECIALTIES: SpecialtyItem[] = [
     description: 'J-code billing, NDC matching, and specialty drug reimbursement.',
     article: {
       title: 'Pharmacy & Infusion RCM',
-      // Pharmacy tech / pills
       image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=1200',
       content: <PharmacyArticle />
     }

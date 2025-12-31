@@ -4,91 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Primary SEO - Targeting High Intent Keywords -->
+    <!-- Primary SEO -->
     <title>MD Claimo | Revenue Cycle Management & Medical Billing Services (RCM)</title>
     <meta name="title" content="MD Claimo | Revenue Cycle Management & Medical Billing Services (RCM)" />
     <meta name="description" content="Maximize practice revenue with MD Claimo's expert Medical Billing & RCM services. 96.8% Clean Claim Rate. Specialists in Cardiology, Pediatrics, and Orthopedics. HIPAA Compliant." />
-    <meta name="keywords" content="medical billing company, revenue cycle management services, outsourced medical billing, RCM solutions, denial management, provider credentialing, medical coding audit, HIPAA compliant billing, practice management, USA" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="author" content="MD Claimo" />
     
-    <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="business.business" />
-    <meta property="og:url" content="https://mdclaimo.com/" />
-    <meta property="og:title" content="Stop Revenue Leakage | MD Claimo Medical Billing" />
-    <meta property="og:description" content="Increase collections by 25% with our data-driven RCM services. We handle the insurance battles so you can focus on patients." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200" />
-    <meta property="business:contact_data:street_address" content="100 Innovation Blvd, Suite 200" />
-    <meta property="business:contact_data:locality" content="Tech City" />
-    <meta property="business:contact_data:region" content="ST" />
-    <meta property="business:contact_data:postal_code" content="90210" />
-    <meta property="business:contact_data:country_name" content="USA" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://mdclaimo.com/" />
-    <meta property="twitter:title" content="MD Claimo | Top Rated Medical Billing Services" />
-    <meta property="twitter:description" content="Maximize practice revenue with our 96.8% clean claim rate strategies. Free practice audit available." />
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200" />
-
-    <!-- Technical -->
-    <link rel="canonical" href="https://mdclaimo.com/" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Structured Data (JSON-LD) for Local Business & Medical Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalBusiness",
-      "name": "MD Claimo",
-      "legalName": "MD Claimo RCM Solutions, LLC",
-      "image": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1000",
-      "@id": "https://mdclaimo.com",
-      "url": "https://mdclaimo.com",
-      "telephone": "+13466784300",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "100 Innovation Blvd, Suite 200",
-        "addressLocality": "Tech City",
-        "addressRegion": "ST",
-        "postalCode": "90210",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.0522,
-        "longitude": -118.2437
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/mdclaimo",
-        "https://twitter.com/mdclaimo",
-        "https://www.facebook.com/mdclaimo"
-      ],
-      "areaServed": {
-        "@type": "Country",
-        "name": "United States"
-      },
-      "description": "MD Claimo provides top-tier Revenue Cycle Management, medical billing, and coding services to private practices and hospital groups across the USA. Specialists in denial management and credentialing."
-    }
-    </script>
-
     <script>
       tailwind.config = {
         theme: {
@@ -97,19 +22,32 @@
               sans: ['Inter', 'sans-serif'],
               heading: ['Outfit', 'sans-serif'],
             },
+            animation: {
+              'spin-slow': 'spin 8s linear infinite',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            },
             colors: {
               brand: {
-                50: '#f0fdfa',
-                100: '#ccfbf1',
-                200: '#99f6e4',
-                300: '#5eead4',
-                400: '#2dd4bf',
-                500: '#14b8a6',
-                600: '#0d9488',
-                700: '#0f766e',
-                800: '#115e59',
-                900: '#134e4a',
-                950: '#042f2e',
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#33a1de',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+                950: '#082f49',
+              },
+              accent: {
+                500: '#77bc43',
               },
               dark: {
                 900: '#0f172a',
@@ -125,32 +63,27 @@
         background-color: #020617;
         color: #f8fafc;
       }
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0f172a;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1e293b;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #334155;
-      }
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #0f172a; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #334155; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@11.18.2?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.475.0?external=react",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
-    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

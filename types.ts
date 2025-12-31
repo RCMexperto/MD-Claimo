@@ -36,10 +36,20 @@ export interface LearnItem {
   content?: React.ReactNode;
 }
 
+export interface ResourceItem {
+  id: string;
+  title: string;
+  type: 'Manual' | 'Guide' | 'Whitepaper' | 'Case Study';
+  description: string;
+  downloadUrl?: string;
+  icon: LucideIcon;
+  tags: string[];
+}
+
 export interface NavLink {
   label: string;
   href: string;
   id?: string;
-  type?: 'service' | 'specialty';
+  type?: 'service' | 'specialty' | 'page';
   children?: NavLink[];
 }

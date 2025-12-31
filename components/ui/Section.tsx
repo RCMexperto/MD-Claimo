@@ -5,9 +5,18 @@ interface SectionProps {
   id: string;
   className?: string;
   children: ReactNode;
+  disableAnimation?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ id, className = '', children }) => {
+const Section: React.FC<SectionProps> = ({ id, className = '', children, disableAnimation = false }) => {
+  if (disableAnimation) {
+    return (
+      <section id={id} className={`py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto ${className}`}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <section id={id} className={`py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto ${className}`}>
       <motion.div
